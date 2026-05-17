@@ -8,6 +8,9 @@ on:
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+  VERCEL_GIT_COMMIT_AUTHOR_LOGIN: apost-solutions
+  VERCEL_GIT_COMMIT_AUTHOR_NAME: Alex Apostolides
+  VERCEL_GIT_COMMIT_AUTHOR_EMAIL: alex@apost.solutions
 
 jobs:
   deploy:
@@ -22,8 +25,4 @@ jobs:
         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
       - name: Deploy Project Artifacts to Vercel
         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
-        env:
-          VERCEL_GIT_COMMIT_AUTHOR_LOGIN: apost-solutions
-          VERCEL_GIT_COMMIT_AUTHOR_NAME: Alex Apostolides
-          VERCEL_GIT_COMMIT_AUTHOR_EMAIL: alex@apost.solutions
 
